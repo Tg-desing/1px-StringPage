@@ -75,14 +75,26 @@
 
 .text {
   position: absolute;
-  left: 5%;
-  top: 5%;
-  width: 80%;
-  height: 70%;
+  left: 1.41vw;
+  top: 3.52vh;
 }
 
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.text > p {
+  margin: 0;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.83vw;
+  line-height: 0.99vw;
+
+  color: #000000;
+  z-index: 999;
+}
+
+.sign {
+  position: absolute;
+  width: 2.76vw;
+  height: 1.29vh;
+  right: 0.63vw;
+  bottom: 0.83vh;
 }

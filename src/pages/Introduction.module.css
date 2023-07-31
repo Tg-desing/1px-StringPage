@@ -1,7 +1,7 @@
 .intro-background {
   background-color: #d0eae0;
   width: 100vw;
-  height: 100vh;
+  aspect-ratio: 16 / 9;
 }
 
 .main-section {

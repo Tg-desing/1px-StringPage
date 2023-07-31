@@ -19,6 +19,7 @@ const ThirdPage = () => {
   const [todayDate, setTodayData] = useState('');
   const [resetIsValid, setResetIsValid] = useState(false);
   const [noteList, setNoteList] = useState({ note1: [], note2: [], note3: [] });
+  const [imageList, setImageList] = useState([]);
 
   const element = useRef();
 

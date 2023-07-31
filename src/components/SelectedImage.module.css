@@ -1,11 +1,5 @@
-.image-container {
-  width: 29.8vw;
-  height: 75.04vh;
-  margin-left: 1.04vw;
-}
-
 .image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 29.84vw;
+  height: 75.05vh;
+  margin-left: 1.04vw;
 }
