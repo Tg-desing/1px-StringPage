@@ -1,0 +1,11 @@
+.intro-background {
+  background-color: #d0eae0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.main-section {
+  padding-left: 11.77vw;
+  padding-top: 12.5vh;
+  display: flex;
+}

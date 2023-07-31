@@ -1,0 +1,47 @@
+.background {
+  width: 100vw;
+  background-color: #d0eae0;
+  aspect-ratio: 16 / 9;
+}
+
+.title {
+  position: absolute;
+  width: 31.19vw;
+  height: 13.42vh;
+  top: 2.55vh;
+  left: 34.37vw;
+}
+
+.notepage {
+  position: absolute;
+  top: 18.42vh;
+  left: 10.98vw;
+  display: flex;
+}
+
+.note-box {
+  margin-bottom: 1.57vh;
+  width: 5.99vw;
+  height: 8.61vh;
+  background-color: #eefff8;
+}
+
+.note-container {
+  margin-top: 5.5vh;
+}
+
+.imgcontainer {
+  width: 69.06vw;
+  height: 80vh;
+}
+
+.noteimg {
+  width: 69.06vw;
+}
+.stringlayer {
+  position: absolute;
+  top: 46.39vh;
+  left: 82.92vw;
+  width: 5.99vw;
+  height: 46.76vh;
+}

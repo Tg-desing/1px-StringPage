@@ -1,0 +1,30 @@
+.note-box {
+  margin-bottom: 1.57vh;
+  width: 5.99vw;
+  height: 8.61vh;
+  background-color: #eefff8;
+}
+
+.note1 {
+  position: absolute;
+  top: 7vh;
+  left: 1.3vw;
+  width: 3.21vw;
+  height: 5.33vh;
+}
+
+.note2 {
+  position: absolute;
+  top: 18vh;
+  left: 1.3vw;
+  width: 3.21vw;
+  height: 5.33vh;
+}
+
+.note3 {
+  position: absolute;
+  top: 27vh;
+  left: 1.3vw;
+  width: 3.21vw;
+  height: 5.33vh;
+}

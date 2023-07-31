@@ -1,0 +1,88 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+.intro-text {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.87vw;
+  line-height: 43px;
+
+  color: #000000;
+  position: absolute;
+  width: 14.47vw;
+  height: 5.27vh;
+  left: 52.71vw;
+  top: 18.7vh;
+}
+
+.intro-text > p {
+  margin: 0;
+}
+
+.sub-text {
+  position: absolute;
+  width: 20.46vw;
+  height: 2.22vh;
+  left: 52.7vw;
+  top: 25.6vh;
+
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.04vw;
+  line-height: 2.22vh;
+  /* identical to box height */
+
+  color: #000000;
+}
+
+.sub-text > p {
+  margin: 0;
+}
+
+.author-text {
+  /* Zeze Takahisa Masaki Suda, Nana Komatsu */
+
+  position: absolute;
+  width: 13.48vw;
+  height: 4.44 vh;
+  left: 52.7vw;
+  top: 33.06vh;
+
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.04vw;
+  line-height: 2.22 vh;
+
+  color: #000000;
+}
+
+.author-text > p {
+  margin: 0;
+}
+
+.sub-box {
+  /* Layer_1 */
+  position: absolute;
+  top: 38.89vh;
+  left: 51.97vw;
+  width: 36.56vw;
+  height: 46.94vh;
+  background-color: #f0f7f5;
+  opacity: 69%;
+}
+
+.text {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  width: 80%;
+  height: 70%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
