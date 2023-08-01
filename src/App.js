@@ -5,7 +5,7 @@ import StartPage from './pages/StartPage';
 import ThirdPage from './pages/ThirdPage';
 
 function App() {
-  return <Introduction />;
+  return <ThirdPage />;
 }
 
 export default App;

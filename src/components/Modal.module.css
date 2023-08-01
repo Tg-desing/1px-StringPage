@@ -1,3 +1,13 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.75);
+}
+
 .calender {
   /*width: 17.6vw;
   height: 10.28vh;*/
@@ -26,11 +36,4 @@
   left: 78.96vw;
   width: 17.6vw;
   height: 10.28vh;
-}
-
-.calender-pos:hover {
-  width: 19vw;
-  height: 12vh;
-  transition: 0.7s;
-  box-shadow: -5px -5px 20px #0c0c0c;
 }
