@@ -1,18 +1,15 @@
 import classes from './UploadButton.module.css';
 import html2canvas from 'html2canvas';
-import { saveAs } from 'file-saver';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import { storage } from '../firebase/firebase';
-import {
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  uploadBytesResumable,
-} from 'firebase/storage';
+import { ref, uploadBytes } from 'firebase/storage';
+
+import ThirdPageContext from '../store/ThridPageContext';
 
 const UploadButton = (props) => {
   const [count, setCount] = useState(0);
+  const imageContext = useContext(ThirdPageContext);
 
   function dataURLToBlob(dataURL) {
     const byteString = atob(dataURL.split(',')[1]);

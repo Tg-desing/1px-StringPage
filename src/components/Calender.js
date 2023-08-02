@@ -1,8 +1,11 @@
 import classes from './Calender.module.css';
 import calender from '../img/calender.svg';
+import { useContext } from 'react';
+
+import ThirdPageContext from '../store/ThridPageContext';
 
 const Calender = (props) => {
-  const imageUrlList = props.imageUrlList;
+  const imageList = useContext(ThirdPageContext);
 
   const setImgList = (imageUrlList) => {
     return imageUrlList.map((url, index) => {
@@ -21,7 +24,7 @@ const Calender = (props) => {
     <div className={classes['calender-pos']}>
       <img src={calender} className={classes.calender}></img>
       <div className={classes['calender-container']}>
-        {setImgList(imageUrlList)}
+        {setImgList(imageList.imageList)}
       </div>
     </div>
   );
