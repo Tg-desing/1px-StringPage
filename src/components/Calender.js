@@ -1,31 +1,36 @@
 import classes from './Calender.module.css';
 import calender from '../img/calender.svg';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
-import ThirdPageContext from '../store/ThridPageContext';
+import ImageContext from '../store/ImageContext';
 
-const Calender = (props) => {
-  const imageList = useContext(ThirdPageContext);
+const Calender = () => {
+  const [calenderImageList, setCalenderImageList] = useState([]);
+  const imageContextList = useContext(ImageContext);
 
   const setImgList = (imageUrlList) => {
-    return imageUrlList.map((url, index) => {
-      return (
+    const tempImageList = [];
+    imageUrlList.forEach((url, index) => {
+      tempImageList.push(
         <img
           key={index}
           src={url}
-          alt={`image${index}`}
+          alt={`calender Img${index}`}
           className={classes.image}
         ></img>
       );
     });
+    setCalenderImageList(tempImageList);
   };
+
+  useEffect(() => {
+    setImgList(imageContextList.imageList);
+  }, [imageContextList]);
 
   return (
     <div className={classes['calender-pos']}>
-      <img src={calender} className={classes.calender}></img>
-      <div className={classes['calender-container']}>
-        {setImgList(imageList.imageList)}
-      </div>
+      <img src={calender} alt={'calender'} className={classes.calender}></img>
+      <div className={classes['calender-container']}>{calenderImageList}</div>
     </div>
   );
 };

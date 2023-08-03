@@ -16,7 +16,8 @@ import { storage } from '../firebase/firebase';
 import Calender from '../components/Calender';
 import { ref, listAll, getDownloadURL } from 'firebase/storage';
 
-import ImageContext from '../store/ThridPageContext';
+import NoteContext from '../store/NoteContext';
+import ImageContext from '../store/ImageContext';
 import SaveButton from '../components/SaveButton';
 
 const ThirdPage = () => {
@@ -34,7 +35,7 @@ const ThirdPage = () => {
   const element = useRef();
 
   useEffect(() => {
-    //db에서
+    //db에서 이미지 뽑아오기
     const tempImageList = [];
     const imageRef = ref(storage, 'images');
     listAll(imageRef)
@@ -57,7 +58,7 @@ const ThirdPage = () => {
     //db에서 json파일 받아오기
     const jsonRef = ref(storage, 'json/noteboard-data.json');
     getDownloadURL(jsonRef)
-      .then((url) => fetch(url, { mode: 'no-cors' }))
+      .then((url) => fetch(url))
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -78,58 +79,64 @@ const ThirdPage = () => {
   };
 
   return (
-    <ImageContext.Provider
+    <NoteContext.Provider
       value={{
-        imageList: imageList,
-        setImageList: setImageList,
         noteSavedList: noteSavedList,
         setNoteSavedList: setNoteSavedList,
       }}
     >
-      <div className={classes['background']}>
-        <img src={title} className={classes.title}></img>
-        <Calender />
-        <img src={stringlayer} className={classes.stringlayer}></img>
-        <div className={classes.notepage} ref={element}>
-          <div className={classes['note-container']}>
-            <NoteBox
-              reset={resetIsValid}
-              noteList={noteList}
-              setNoteList={setNoteList}
-              setResetIsValid={setResetIsValid}
-              img={note1}
-              id="1"
-              saveIsValid={saveIsValid}
-              setSaveIsValid={setSaveIsValid}
-            ></NoteBox>
-            <NoteBox
-              reset={resetIsValid}
-              noteList={noteList}
-              setNoteList={setNoteList}
-              setResetIsValid={setResetIsValid}
-              id="2"
-              img={note2}
-              saveIsValid={saveIsValid}
-              setSaveIsValid={setSaveIsValid}
-            ></NoteBox>
-            <NoteBox
-              reset={resetIsValid}
-              noteList={noteList}
-              setNoteList={setNoteList}
-              setResetIsValid={setResetIsValid}
-              id="3"
-              img={note3}
-              saveIsValid={saveIsValid}
-              setSaveIsValid={setSaveIsValid}
-            ></NoteBox>
+      <ImageContext.Provider
+        value={{ imageList: imageList, setImageList: setImageList }}
+      >
+        <div className={classes['background']}>
+          <img src={title} alt={'title'} className={classes.title}></img>
+          <Calender />
+          <img
+            src={stringlayer}
+            alt={'stringlayer'}
+            className={classes.stringlayer}
+          ></img>
+          <div className={classes.notepage} ref={element}>
+            <div className={classes['note-container']}>
+              <NoteBox
+                resetIsValid={resetIsValid}
+                noteList={noteList}
+                setNoteList={setNoteList}
+                setResetIsValid={setResetIsValid}
+                img={note1}
+                id="1"
+                saveIsValid={saveIsValid}
+                setSaveIsValid={setSaveIsValid}
+              ></NoteBox>
+              <NoteBox
+                resetIsValid={resetIsValid}
+                noteList={noteList}
+                setNoteList={setNoteList}
+                setResetIsValid={setResetIsValid}
+                id="2"
+                img={note2}
+                saveIsValid={saveIsValid}
+                setSaveIsValid={setSaveIsValid}
+              ></NoteBox>
+              <NoteBox
+                resetIsValid={resetIsValid}
+                noteList={noteList}
+                setNoteList={setNoteList}
+                setResetIsValid={setResetIsValid}
+                id="3"
+                img={note3}
+                saveIsValid={saveIsValid}
+                setSaveIsValid={setSaveIsValid}
+              ></NoteBox>
+            </div>
+            <img src={notepage} className={classes.noteimg}></img>
+            <ReButton onClick={onClickReButtonHandler}></ReButton>
           </div>
-          <img src={notepage} className={classes.noteimg}></img>
-          <ReButton onClick={onClickReButtonHandler}></ReButton>
+          <UploadButton element={element}></UploadButton>
+          <SaveButton onClick={onClickSaveButtonHandler}></SaveButton>
         </div>
-        <UploadButton element={element}></UploadButton>
-        <SaveButton onClick={onClickSaveButtonHandler}></SaveButton>
-      </div>
-    </ImageContext.Provider>
+      </ImageContext.Provider>
+    </NoteContext.Provider>
   );
 };
 

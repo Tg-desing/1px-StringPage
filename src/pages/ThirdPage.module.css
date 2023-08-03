@@ -1,4 +1,5 @@
 .background {
+  position: relative;
   width: 100vw;
   background-color: #d0eae0;
   aspect-ratio: 16 / 9;
