@@ -1,14 +1,18 @@
 import classes from './UploadButton.module.css';
 import html2canvas from 'html2canvas';
-import { useState, useContext, useCallback, useEffect } from 'react';
+import { useContext, useCallback } from 'react';
 
 import { storage } from '../firebase/firebase';
-import { getDownloadURL, ref, uploadBytes } from 'firebase/storage';
+import {
+  getDownloadURL,
+  ref,
+  uploadBytes,
+  uploadString,
+} from 'firebase/storage';
 
 import ImageContext from '../store/ImageContext';
 
 const UploadButton = (props) => {
-  const [count, setCount] = useState(0);
   const imageContext = useContext(ImageContext);
 
   //컨텍스트에서 받아온 함수, 데이터 저장
@@ -34,11 +38,24 @@ const UploadButton = (props) => {
     return new Blob([arrayBuffer], { type: mimeString });
   }
 
+  const uploadModifiedJson = (data) => {
+    const jsonString = JSON.stringify(data);
+    const jsonRef = ref(storage, 'json/noteboard-data.json');
+
+    uploadString(jsonRef, jsonString)
+      .then(() => {
+        console.log('JSON uploaded successfully');
+      })
+      .catch((error) => {
+        console.log('Error uploading JSON:', error);
+      });
+  };
+
   async function uploadBlobToFirebaseStorage(storage, blob) {
     try {
       const storageRef = ref(
         storage,
-        `images/image${parseInt(Math.random())}.png`
+        `images/image${Math.floor(Math.random() * 100)}.png`
       );
       await uploadBytes(storageRef, blob)
         .then((snapshot) => {
@@ -50,6 +67,11 @@ const UploadButton = (props) => {
       getDownloadURL(storageRef).then((url) => {
         setImageContextList(`${url}`);
       });
+      uploadModifiedJson({
+        note1: [],
+        note2: [],
+        note3: [],
+      });
     } catch (error) {
       console.error('Error uploading image to Firebase Storage:', error);
     }
@@ -60,11 +82,6 @@ const UploadButton = (props) => {
 
     if (screenShotElement) {
       html2canvas(screenShotElement).then((canvas) => {
-        setCount((current) => {
-          const newcount = current + 1;
-          return newcount;
-        });
-
         const image = canvas.toDataURL('image/png');
         const imageBlob = dataURLToBlob(image);
         uploadBlobToFirebaseStorage(storage, imageBlob);

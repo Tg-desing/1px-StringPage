@@ -57,7 +57,22 @@ const NoteBox = (props) => {
   useEffect(() => {
     if (saveIsValid) {
       if (savedList.length !== 0) {
-        setNoteSavedContextList(savedList);
+        const templist = [];
+        let tempo = [];
+        const length = savedList.length;
+        templist.push(savedList[0]);
+        console.log(templist);
+        for (let i = 0; i < length; i++) {
+          tempo = [
+            ...templist.filter(
+              (item) => item.targetId !== savedList[i].targetId
+            ),
+          ];
+          templist.push(savedList[i]);
+          tempo.push(savedList[i]);
+        }
+        console.log(tempo);
+        setNoteSavedContextList(tempo);
         setSaveIsValid(false);
       }
     }
@@ -97,7 +112,6 @@ const NoteBox = (props) => {
 
   useEffect(() => {
     if (noteSavedContext.noteSavedList[`note${id}`].length !== 0) {
-      console.log(noteSavedContext.noteSavedList[`note${id}`]);
       uploadModifiedJson(noteSavedContext.noteSavedList);
       const noteList = [];
       noteSavedContext.noteSavedList[`note${id}`].forEach((item) => {
@@ -111,19 +125,18 @@ const NoteBox = (props) => {
           ></img>
         );
       });
-      console.log(noteList);
       setShowSavedList(noteList);
     }
   }, [noteSavedContext.noteSavedList, id, img]);
 
-  const setNoteList = (id, img) => {
+  const setNoteList = (id, img, targetId) => {
     props.setNoteList((current) => {
       return {
         ...current,
         [`note${id}`]: [
           ...current[`note${id}`],
           <img
-            id={id}
+            id={`${targetId}`}
             src={img}
             alt={`note${id}`}
             className={classes[`note${id}`]}
@@ -136,9 +149,9 @@ const NoteBox = (props) => {
     });
   };
 
-  const setNoteSavedList = (id, top, left) => {
+  const setNoteSavedList = (id, targetId, top, left) => {
     setSavedList((current) => {
-      return [...current, { id: id, top: top, left: left }];
+      return [...current, { id: id, targetId: targetId, top: top, left: left }];
     });
   };
 
@@ -168,9 +181,16 @@ const NoteBox = (props) => {
     e.target.style.left = `${e.clientX - cusorPos.x + originPos.x}px`;
     e.target.style.top = `${e.clientY - cusorPos.y + originPos.y}px`;
 
-    setNoteList(props.id, props.img);
+    const rannum = Math.floor(Math.random() * 100000);
+    console.log(rannum);
+    setNoteSavedList(
+      props.id,
+      e.target.id,
+      e.target.style.top,
+      e.target.style.left
+    );
+    setNoteList(props.id, props.img, rannum);
     console.log(e.target.style.left);
-    setNoteSavedList(props.id, e.target.style.top, e.target.style.left);
   };
 
   return (
