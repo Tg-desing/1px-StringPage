@@ -143,14 +143,20 @@ const NoteBox = (props) => {
   };
 
   const onDragStartHandler = (e) => {
-    setOriginPos({
-      x: e.target.offsetLeft,
-      y: e.target.offsetTop,
-    });
-    setCusorPos({
-      x: e.clientX,
-      y: e.clientY,
-    });
+    if (
+      (originPos.x === 0 && originPos.y === 0) ||
+      (originPos.x === e.target.offsetLeft &&
+        originPos.y === e.target.offsetTop)
+    ) {
+      setOriginPos({
+        x: e.target.offsetLeft,
+        y: e.target.offsetTop,
+      });
+      setCusorPos({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    }
   };
 
   const onDragHandler = (e) => {
