@@ -12,6 +12,7 @@ const ReButton = (props) => {
       src={img}
       className={classes.rebutton}
       onClick={onClickButtonHandler}
+      alt="re button"
     ></img>
   );
 };

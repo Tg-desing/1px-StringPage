@@ -130,10 +130,10 @@ const ThirdPage = () => {
               ></NoteBox>
             </div>
             <img src={notepage} className={classes.noteimg}></img>
+            <SaveButton onClick={onClickSaveButtonHandler}></SaveButton>
             <ReButton onClick={onClickReButtonHandler}></ReButton>
           </div>
           <UploadButton element={element}></UploadButton>
-          <SaveButton onClick={onClickSaveButtonHandler}></SaveButton>
         </div>
       </ImageContext.Provider>
     </NoteContext.Provider>

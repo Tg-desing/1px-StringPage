@@ -11,6 +11,7 @@
   left: 1.3vw;
   width: 3.21vw;
   height: 5.33vh;
+  z-index: 2;
 }
 
 .note2 {
@@ -19,6 +20,7 @@
   left: 1.3vw;
   width: 3.21vw;
   height: 5.33vh;
+  z-index: 2;
 }
 
 .note3 {
@@ -27,4 +29,5 @@
   left: 1.3vw;
   width: 3.21vw;
   height: 5.33vh;
+  z-index: 2;
 }

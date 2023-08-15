@@ -1,9 +1,9 @@
 .rebutton {
   position: absolute;
-  width: 1.2%;
-  height: 1.86%;
-  top: 6.95vh;
-  left: 71.26vw;
+  width: 1.32vw;
+  top: 70.93vh;
+  left: 71.25vw;
   object-fit: cover;
   object-position: center;
+  z-index: 1;
 }

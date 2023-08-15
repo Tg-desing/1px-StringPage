@@ -12,6 +12,8 @@ import {
 
 import ImageContext from '../store/ImageContext';
 
+import camera from '../img/camera.svg';
+
 const UploadButton = (props) => {
   const imageContext = useContext(ImageContext);
 
@@ -91,9 +93,12 @@ const UploadButton = (props) => {
   };
 
   return (
-    <button className={classes.button} onClick={onClickHandler}>
-      스크린샷 저장
-    </button>
+    <img
+      src={camera}
+      className={classes.button}
+      onClick={onClickHandler}
+      alt="upload button"
+    ></img>
   );
 };
 

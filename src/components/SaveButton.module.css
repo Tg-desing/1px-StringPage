@@ -1,0 +1,17 @@
+.button {
+  position: absolute;
+  width: 2.81vw;
+  height: 5vh;
+  left: 2.29vw;
+  top: 1.29vh;
+}
+
+.button-container {
+  position: absolute;
+  width: 5.85vw;
+  margin-top: 5.5vh;
+  height: 7.5vh;
+  left: 72.04vw;
+  background-color: #eefff8;
+  z-index: 0;
+}

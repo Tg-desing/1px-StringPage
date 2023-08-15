@@ -38,6 +38,7 @@
 
 .noteimg {
   width: 69.06vw;
+  z-index: 1;
 }
 .stringlayer {
   position: absolute;
