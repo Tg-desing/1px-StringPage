@@ -17,14 +17,18 @@ const IntroText = () => {
       </div>
       <div className={classes['sub-box']}>
         <div className={classes.text}>
-          <p>“내가 너를 지켜줄게”</p>
+          <p>
+            <strong>“내가 너를 지켜줄게”</strong>
+          </p>
           <p>열두 살에 만난 첫사랑 ‘렌’과 ‘아오이’.</p>
           <p>
             한눈에 서로의 상처를 알아보고 시작된 둘의 인연은 운명처럼 다시
             재회하길 반복한다.
           </p>
           <br></br>
-          <p>“’운명의 실’이 있다고 생각해”</p>
+          <p>
+            <strong>“’운명의 실’이 있다고 생각해”</strong>
+          </p>
           <p>‘아오이’가 준 소원팔찌를 8년 동안 간직한 ‘렌’.</p>
           <p>어느 날 소원팔찌가 끊어지고 두 사람은 운명처럼 재회한다.</p>
           <br></br>

@@ -135,15 +135,16 @@ const NoteBox = (props) => {
         ...current,
         [`note${id}`]: [
           ...current[`note${id}`],
-          <img
-            id={`${targetId}`}
-            src={img}
-            alt={`note${id}`}
-            className={classes[`note${id}`]}
-            onDrag={onDragHandler}
-            onDragEnd={onDragEndHandler}
-            onDragStart={onDragStartHandler}
-          ></img>,
+          // <img
+          //   id={`${targetId}`}
+          //   src={img}
+          //   alt={`note${id}`}
+          //   className={classes[`note${id}`]}
+          //   onDrag={onDragHandler}
+          //   onDragEnd={onDragEndHandler}
+          //   onDragStart={onDragStartHandler}
+          // ></img>,
+          { id: id, targetId: targetId, img: img },
         ],
       };
     });
@@ -205,7 +206,17 @@ const NoteBox = (props) => {
         onDragStart={onDragStartHandler}
         ref={originalNote}
       ></img>
-      {props.noteList[`note${props.id}`]}
+      {props.noteList[`note${props.id}`].map((item) => (
+        <img
+          id={`${item.targetId}`}
+          src={item.img}
+          alt={`note${item.id}`}
+          className={classes[`note${item.id}`]}
+          onDrag={onDragHandler}
+          onDragEnd={onDragEndHandler}
+          onDragStart={onDragStartHandler}
+        ></img>
+      ))}
       {showSavedList}
     </div>
   );

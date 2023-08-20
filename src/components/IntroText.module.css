@@ -70,13 +70,14 @@
   width: 36.56vw;
   height: 46.94vh;
   background-color: #f0f7f5;
-  opacity: 69%;
+  /* opacity: 69%; */
 }
 
 .text {
   position: absolute;
   left: 1.41vw;
   top: 3.52vh;
+  z-index: 100;
 }
 
 .text > p {
@@ -85,10 +86,10 @@
   font-style: normal;
   font-weight: 400;
   font-size: 0.83vw;
-  line-height: 0.99vw;
+  line-height: 1.79vh;
 
-  color: #000000;
-  z-index: 999;
+  color: black;
+  z-index: 200;
 }
 
 .sign {

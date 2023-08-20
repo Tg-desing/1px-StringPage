@@ -28,11 +28,13 @@ const ThirdPage = () => {
     note2: [],
     note3: [],
   });
+  const [isDropValid, setIsDropValid] = useState(false);
   //save 버튼을 눌렀는가
   const [saveIsValid, setSaveIsValid] = useState(false);
   const [imageList, setImageList] = useState([]);
 
   const element = useRef();
+  const dragElement = useRef();
 
   useEffect(() => {
     //db에서 이미지 뽑아오기
@@ -78,6 +80,22 @@ const ThirdPage = () => {
     setResetIsValid(true);
   };
 
+  // const onDragEnterHandler = (e) => {
+  //   e.preventDefault();
+  //   console.log(e.target);
+  //   console.log('enter');
+  //   setIsDropValid(true);
+  // };
+
+  // const onDragOverHandler = (e) => {
+  //   e.preventDefault();
+  // };
+
+  // const onDragLeaveHandler = (e) => {
+  //   e.preventDefault();
+  //   setIsDropValid(false);
+  // };
+
   return (
     <NoteContext.Provider
       value={{
@@ -107,6 +125,8 @@ const ThirdPage = () => {
                 id="1"
                 saveIsValid={saveIsValid}
                 setSaveIsValid={setSaveIsValid}
+                isDropValid={isDropValid}
+                setIsDropValid={setIsDropValid}
               ></NoteBox>
               <NoteBox
                 resetIsValid={resetIsValid}
@@ -129,10 +149,14 @@ const ThirdPage = () => {
                 setSaveIsValid={setSaveIsValid}
               ></NoteBox>
             </div>
-            <img src={notepage} className={classes.noteimg}></img>
-            <p className={classes.text}>음표를 붙인 후 체크 버튼을 꼭 눌러주세요! </p>
+            <div className={classes['img-div']} id="drag-on">
+              <img src={notepage} className={classes.noteimg} alt="note"></img>
+              <ReButton onClick={onClickReButtonHandler}></ReButton>
+            </div>
+            <p className={classes.text}>
+              음표를 붙인 후 체크 버튼을 꼭 눌러주세요!{' '}
+            </p>
             <SaveButton onClick={onClickSaveButtonHandler}></SaveButton>
-            <ReButton onClick={onClickReButtonHandler}></ReButton>
           </div>
           <UploadButton element={element}></UploadButton>
         </div>

@@ -20,6 +20,7 @@
   top: 18.42vh;
   left: 10.98vw;
   display: flex;
+  z-index: 100;
 }
 
 .note-box {
@@ -40,7 +41,6 @@
 
 .noteimg {
   width: 69.06vw;
-  z-index: 1;
 }
 .stringlayer {
   position: absolute;
@@ -58,5 +58,10 @@
   left: 79%;
   font-weight: 400;
   top: 6%;
-  z-index: 3;
+  z-index: 11;
+}
+
+.img-div {
+  z-index: 10;
+  position: relative;
 }
