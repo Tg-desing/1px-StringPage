@@ -7,6 +7,7 @@ import FourthPage from './pages/FourthPage';
 function App() {
   return (
     <>
+      <StartPage></StartPage>
       <Introduction />
       <ThirdPage />
       <FourthPage />

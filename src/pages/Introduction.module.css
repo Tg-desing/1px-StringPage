@@ -5,6 +5,7 @@
 }
 
 .main-section {
+  position: relative;
   padding-left: 11.77vw;
   padding-top: 12.5vh;
   display: flex;

@@ -1,46 +1,16 @@
-.wrapper {
+.page {
+  width: 100vw;
+  aspect-ratio: 16 / 9;
+  background-color: #d0eae0;
   position: relative;
+}
+
+.image {
+  position: absolute;
   width: 100%;
-  height: 100vh;
-  overflow: hidden;
 }
 
-.rope {
+.string {
   position: absolute;
-  top: 0;
-  left: 50%;
-  width: 2px;
-  height: 100%;
-  background-color: #333;
-  animation: ropeAnimation 2s ease-in-out infinite alternate;
-}
-
-.knot {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 16px;
-  height: 16px;
-  background-color: #333;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  animation: knotAnimation 2s ease-in-out infinite alternate;
-}
-
-@keyframes ropeAnimation {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes knotAnimation {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+  width: 100%;
 }
