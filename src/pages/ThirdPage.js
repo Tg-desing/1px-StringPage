@@ -130,6 +130,7 @@ const ThirdPage = () => {
               ></NoteBox>
             </div>
             <img src={notepage} className={classes.noteimg}></img>
+            <p className={classes.text}>음표를 붙인 후 체크 버튼을 꼭 눌러주세요! </p>
             <SaveButton onClick={onClickSaveButtonHandler}></SaveButton>
             <ReButton onClick={onClickReButtonHandler}></ReButton>
           </div>
