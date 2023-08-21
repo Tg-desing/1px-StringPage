@@ -11,6 +11,8 @@ const ReButton = (props) => {
       src={img}
       className={classes.rebutton}
       onClick={onClickButtonHandler}
+      onDragStart={props.onDragStart}
+      onDrag={props.onDrag}
       alt="re button"
     ></img>
   );

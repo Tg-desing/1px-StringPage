@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useState, useContext } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import classes from './ThirdPage.module.css';
 import title from '../img/title.svg';
 import notepage from '../img/notepage.svg';
-import calender from '../img/calender.svg';
 import stringlayer from '../img/stringlayer.svg';
 
 import note1 from '../img/note1.svg';
@@ -34,7 +33,6 @@ const ThirdPage = () => {
   const [imageList, setImageList] = useState([]);
 
   const element = useRef();
-  const dragElement = useRef();
 
   useEffect(() => {
     //db에서 이미지 뽑아오기
@@ -80,21 +78,10 @@ const ThirdPage = () => {
     setResetIsValid(true);
   };
 
-  // const onDragEnterHandler = (e) => {
-  //   e.preventDefault();
-  //   console.log(e.target);
-  //   console.log('enter');
-  //   setIsDropValid(true);
-  // };
-
-  // const onDragOverHandler = (e) => {
-  //   e.preventDefault();
-  // };
-
-  // const onDragLeaveHandler = (e) => {
-  //   e.preventDefault();
-  //   setIsDropValid(false);
-  // };
+  const onDragOverHandler = (e) => {
+    e.preventDefault();
+    setIsDropValid(true);
+  };
 
   return (
     <NoteContext.Provider
@@ -137,6 +124,8 @@ const ThirdPage = () => {
                 img={note2}
                 saveIsValid={saveIsValid}
                 setSaveIsValid={setSaveIsValid}
+                isDropValid={isDropValid}
+                setIsDropValid={setIsDropValid}
               ></NoteBox>
               <NoteBox
                 resetIsValid={resetIsValid}
@@ -147,9 +136,15 @@ const ThirdPage = () => {
                 img={note3}
                 saveIsValid={saveIsValid}
                 setSaveIsValid={setSaveIsValid}
+                isDropValid={isDropValid}
+                setIsDropValid={setIsDropValid}
               ></NoteBox>
             </div>
-            <div className={classes['img-div']} id="drag-on">
+            <div
+              className={classes['img-div']}
+              id="drag-on"
+              onDragOver={onDragOverHandler}
+            >
               <img src={notepage} className={classes.noteimg} alt="note"></img>
               <ReButton onClick={onClickReButtonHandler}></ReButton>
             </div>

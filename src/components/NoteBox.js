@@ -2,7 +2,6 @@ import classes from './NoteBox.module.css';
 import React, {
   useEffect,
   useState,
-  memo,
   useRef,
   useContext,
   useCallback,
@@ -173,25 +172,26 @@ const NoteBox = (props) => {
     }
   };
 
-  const onDragHandler = (e) => {
-    e.target.style.left = `${e.clientX - cusorPos.x + originPos.x}px`;
-    e.target.style.top = `${e.clientY - cusorPos.y + originPos.y}px`;
-  };
-
   const onDragEndHandler = (e) => {
-    e.target.style.left = `${e.clientX - cusorPos.x + originPos.x}px`;
-    e.target.style.top = `${e.clientY - cusorPos.y + originPos.y}px`;
+    console.log(props.isDropValid);
+    if (props.isDropValid) {
+      e.target.style.left = `${e.clientX - cusorPos.x + originPos.x}px`;
+      e.target.style.top = `${e.clientY - cusorPos.y + originPos.y}px`;
 
-    const rannum = Math.floor(Math.random() * 100000);
-    console.log(rannum);
-    setNoteSavedList(
-      props.id,
-      e.target.id,
-      e.target.style.top,
-      e.target.style.left
-    );
-    setNoteList(props.id, props.img, rannum);
-    console.log(e.target.style.left);
+      const rannum = Math.floor(Math.random() * 100000);
+      console.log(rannum);
+      setNoteSavedList(
+        props.id,
+        e.target.id,
+        e.target.style.top,
+        e.target.style.left
+      );
+      setNoteList(props.id, props.img, rannum);
+    } else {
+      e.target.style.left = `${originPos.x}px`;
+      e.target.style.top = `${originPos.y}px`;
+    }
+    props.setIsDropValid(false);
   };
 
   return (
@@ -201,10 +201,10 @@ const NoteBox = (props) => {
         src={props.img}
         alt={`note${props.id}`}
         className={classes[`note${props.id}`]}
-        onDrag={onDragHandler}
-        onDragEnd={onDragEndHandler}
         onDragStart={onDragStartHandler}
+        onDragEnd={onDragEndHandler}
         ref={originalNote}
+        draggable="true"
       ></img>
       {props.noteList[`note${props.id}`].map((item) => (
         <img
@@ -212,9 +212,9 @@ const NoteBox = (props) => {
           src={item.img}
           alt={`note${item.id}`}
           className={classes[`note${item.id}`]}
-          onDrag={onDragHandler}
           onDragEnd={onDragEndHandler}
           onDragStart={onDragStartHandler}
+          draggable="true"
         ></img>
       ))}
       {showSavedList}
@@ -222,4 +222,4 @@ const NoteBox = (props) => {
   );
 };
 
-export default memo(NoteBox);
+export default NoteBox;
