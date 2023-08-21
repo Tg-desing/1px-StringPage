@@ -1,6 +1,5 @@
 import classes from './ReButton.module.css';
 import img from '../img/rebutton.svg';
-import { useContext } from 'react';
 
 const ReButton = (props) => {
   const onClickButtonHandler = (e) => {
