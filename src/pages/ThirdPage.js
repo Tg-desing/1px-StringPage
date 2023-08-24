@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import classes from './ThirdPage.module.css';
 import title from '../img/title.svg';
 import notepage from '../img/notepage.svg';
-import stringlayer from '../img/stringlayer.svg';
 
 import note1 from '../img/note1.svg';
 import note2 from '../img/note2.svg';
@@ -18,6 +17,7 @@ import { ref, listAll, getDownloadURL } from 'firebase/storage';
 import NoteContext from '../store/NoteContext';
 import ImageContext from '../store/ImageContext';
 import SaveButton from '../components/SaveButton';
+import StringLayer from '../components/StringLayer';
 
 const ThirdPage = () => {
   const [resetIsValid, setResetIsValid] = useState(false);
@@ -96,11 +96,7 @@ const ThirdPage = () => {
         <div className={classes['background']}>
           <img src={title} alt={'title'} className={classes.title}></img>
           <Calender />
-          <img
-            src={stringlayer}
-            alt={'stringlayer'}
-            className={classes.stringlayer}
-          ></img>
+          <StringLayer />
           <div className={classes.notepage} ref={element}>
             <div className={classes['note-container']}>
               <NoteBox

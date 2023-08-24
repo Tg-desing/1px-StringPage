@@ -1,0 +1,34 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+
+.stringlayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+.stringlayer-container {
+    position: absolute;
+    top: 45.5%;
+    left: 82.92vw;
+    width: 5.99vw;
+    height: 46.76vh;
+}
+
+.text {
+    font-family: 'Pretendard';
+    font-size: 0.64vw;
+    font-weight: 500;
+    writing-mode: vertical-rl;
+    color: black;
+    margin: 0;
+    z-index: 11;
+}
+
+.text-container {
+    display: flex;
+    padding-left: 45%;
+    padding-top: 60%;
+
+}
