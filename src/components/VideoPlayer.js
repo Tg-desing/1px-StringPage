@@ -12,6 +12,7 @@ function VideoPlayer() {
     if (video) {
       video.play().catch((error) => {
         console.log('Error Occured During Video Play');
+        console.log(error);
       });
     }
   }
@@ -26,6 +27,8 @@ function VideoPlayer() {
 
   return (
     <video
+      autoPlay
+      muted
       className={classes.video}
       ref={videoRef}
       onMouseEnter={onHoverHandler}
