@@ -27,6 +27,10 @@ const UploadButton = (props) => {
     [imageContext]
   );
 
+  const setJsonNull = () => {
+    props.setNoteSavedList({ note1: [], note2: [], note3: [] });
+  };
+
   function dataURLToBlob(dataURL) {
     const byteString = atob(dataURL.split(',')[1]);
     const mimeString = dataURL.split(',')[0].split(':')[1].split(';')[0];
@@ -90,6 +94,8 @@ const UploadButton = (props) => {
         console.log(imageBlob);
       });
     }
+    setJsonNull();
+    uploadModifiedJson({ not1: [], note2: [], note3: [] });
   };
 
   return (
