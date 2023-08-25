@@ -152,10 +152,7 @@ const ThirdPage = () => {
               음표를 붙인 후 체크 버튼을 꼭 눌러주세요!{' '}
             </p>
             <SaveButton onClick={onClickSaveButtonHandler}></SaveButton>
-            <UploadButton
-              element={element}
-              setNoteSavedList={setNoteSavedList}
-            ></UploadButton>
+            <UploadButton element={element}></UploadButton>
           </div>
         </div>
       </ImageContext.Provider>
