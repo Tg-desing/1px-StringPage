@@ -21,6 +21,8 @@ const NoteBox = (props) => {
   const [savedList, setSavedList] = useState([]);
   const [showSavedList, setShowSavedList] = useState([]);
 
+  const [isNew, setIsNew] = useState(false);
+
   //부모 컴포넌트로부터 받은 변수들 저장
   const id = props.id;
   const img = props.img;
@@ -155,28 +157,46 @@ const NoteBox = (props) => {
     });
   };
 
+  const [isResized, setIsResized] = useState(false);
+
+  window.addEventListener('resize', () => {
+    setIsResized(true);
+  });
+
   const onDragStartHandler = (e) => {
+    const offsetLeft = parseFloat(
+      (e.target.offsetLeft / window.innerWidth) * 100
+    );
+    const offsetTop = parseFloat(
+      (e.target.offsetTop / window.innerHeight) * 100
+    );
     if (
       (originPos.x === 0 && originPos.y === 0) ||
-      (originPos.x === e.target.offsetLeft &&
-        originPos.y === e.target.offsetTop)
+      (originPos.x === offsetLeft && originPos.y === offsetTop) ||
+      isResized
     ) {
       setOriginPos({
-        x: e.target.offsetLeft,
-        y: e.target.offsetTop,
+        x: parseFloat((e.target.offsetLeft / window.innerWidth) * 100),
+        y: parseFloat((e.target.offsetTop / window.innerHeight) * 100),
       });
       setCusorPos({
-        x: e.clientX,
-        y: e.clientY,
+        x: parseFloat((e.clientX / window.innerWidth) * 100),
+        y: parseFloat((e.clientY / window.innerHeight) * 100),
       });
+      setIsNew(true);
     }
+    setIsResized(false);
   };
 
   const onDragEndHandler = (e) => {
-    console.log(props.isDropValid);
+    console.log(originPos);
+    const x = parseFloat((e.clientX / window.innerWidth) * 100);
+    const y = parseFloat((e.clientY / window.innerHeight) * 100);
+    console.log(parseFloat(x - cusorPos.x + originPos.x));
     if (props.isDropValid) {
-      e.target.style.left = `${e.clientX - cusorPos.x + originPos.x}px`;
-      e.target.style.top = `${e.clientY - cusorPos.y + originPos.y}px`;
+      console.log(1);
+      e.target.style.left = `${parseFloat(x - cusorPos.x + originPos.x)}vw`;
+      e.target.style.top = `${parseFloat(y - cusorPos.y + originPos.y)}vh`;
 
       const rannum = Math.floor(Math.random() * 100000);
       console.log(rannum);
@@ -186,17 +206,20 @@ const NoteBox = (props) => {
         e.target.style.top,
         e.target.style.left
       );
-      setNoteList(props.id, props.img, rannum);
+      if (isNew) {
+        setNoteList(props.id, props.img, rannum);
+      }
     } else {
-      e.target.style.left = `${originPos.x}px`;
-      e.target.style.top = `${originPos.y}px`;
+      e.target.style.left = `${originPos.x}vw`;
+      e.target.style.top = `${originPos.y}vh`;
     }
     props.setIsDropValid(false);
+    setIsNew(false);
   };
 
   return (
     <div className={classes['note-box']}>
-      <img
+      {/* <img
         id={props.id}
         src={props.img}
         alt={`note${props.id}`}
@@ -205,11 +228,11 @@ const NoteBox = (props) => {
         onDragEnd={onDragEndHandler}
         ref={originalNote}
         draggable="true"
-      ></img>
+      ></img> */}
       {props.noteList[`note${props.id}`].map((item) => (
         <img
           id={`${item.targetId}`}
-          src={item.img}
+          src={props.img}
           alt={`note${item.id}`}
           className={classes[`note${item.id}`]}
           onDragEnd={onDragEndHandler}

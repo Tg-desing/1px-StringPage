@@ -4,6 +4,11 @@
   height: 5vh;
   left: 2.29vw;
   top: 1.29vh;
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: scale(1.1);
 }
 
 .button-container {

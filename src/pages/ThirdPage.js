@@ -8,7 +8,7 @@ import note1 from '../img/note1.svg';
 import note2 from '../img/note2.svg';
 import note3 from '../img/note3.svg';
 import NoteBox from '../components/NoteBox';
-import ReButton from '../components/ReButton';
+// import ReButton from '../components/ReButton';
 import UploadButton from '../components/UploadButton';
 import { storage } from '../firebase/firebase';
 import Calender from '../components/Calender';
@@ -21,7 +21,11 @@ import StringLayer from '../components/StringLayer';
 
 const ThirdPage = () => {
   const [resetIsValid, setResetIsValid] = useState(false);
-  const [noteList, setNoteList] = useState({ note1: [], note2: [], note3: [] });
+  const [noteList, setNoteList] = useState({
+    note1: [{ targetId: 1, id: 1 }],
+    note2: [{ targetId: 2, id: 2 }],
+    note3: [{ targetId: 3, id: 3 }],
+  });
   const [noteSavedList, setNoteSavedList] = useState({
     note1: [],
     note2: [],
@@ -67,10 +71,10 @@ const ThirdPage = () => {
       .catch((e) => console.log('Error occurred during json download', e));
   }, []);
 
-  const onClickReButtonHandler = () => {
-    setNoteList({ note1: [], note2: [], note3: [] });
-    setResetIsValid(true);
-  };
+  // const onClickReButtonHandler = () => {
+  //   setNoteList({ note1: [], note2: [], note3: [] });
+  //   setResetIsValid(true);
+  // };
 
   //save button눌렀을 때,
   const onClickSaveButtonHandler = (e) => {
@@ -142,14 +146,14 @@ const ThirdPage = () => {
               onDragOver={onDragOverHandler}
             >
               <img src={notepage} className={classes.noteimg} alt="note"></img>
-              <ReButton onClick={onClickReButtonHandler}></ReButton>
+              {/* <ReButton onClick={onClickReButtonHandler}></ReButton> */}
             </div>
             <p className={classes.text}>
               음표를 붙인 후 체크 버튼을 꼭 눌러주세요!{' '}
             </p>
             <SaveButton onClick={onClickSaveButtonHandler}></SaveButton>
+            <UploadButton element={element}></UploadButton>
           </div>
-          <UploadButton element={element}></UploadButton>
         </div>
       </ImageContext.Provider>
     </NoteContext.Provider>

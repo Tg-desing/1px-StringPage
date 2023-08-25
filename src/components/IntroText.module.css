@@ -4,8 +4,8 @@
   font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
-  font-size: 1.87vw;
-  line-height: 43px;
+  font-size: 1.67vw;
+  line-height: 3.56vh;
 
   color: #000000;
   position: absolute;
@@ -24,7 +24,7 @@
   width: 20.46vw;
   height: 2.22vh;
   left: 52.7vw;
-  top: 25.6vh;
+  top: 23.98vh;
 
   font-family: 'Pretendard';
   font-style: normal;
@@ -75,18 +75,17 @@
 
 .text {
   position: absolute;
-  left: 1.41vw;
+  left: 0.83vw;
   top: 3.52vh;
   z-index: 100;
 }
 
 .text > p {
-  margin: 0;
+  margin: 0.41vh;
   font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 0.83vw;
-  line-height: 1.79vh;
+  line-height: 1.77vh;
 
   color: black;
   z-index: 200;
@@ -94,8 +93,14 @@
 
 .sign {
   position: absolute;
-  width: 2.76vw;
-  height: 1.29vh;
-  right: 0.63vw;
+  margin: 0;
+  font-family: 'Pretendard';
+  font-weight: 300;
+  font-size: 0.63vw;
+  right: 0.42vw;
   bottom: 0.83vh;
+  line-height: 1.33vh;
+  
+  color: black;
+  z-index: 200;
 }

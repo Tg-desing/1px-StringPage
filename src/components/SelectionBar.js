@@ -48,6 +48,7 @@ const SelectionBar = (props) => {
           onClick={onClickHandler}
         />
       </div>
+      <p className={classes['image-text']}>| 포스터 이미지를 클릭해보세요</p>
     </div>
   );
 };

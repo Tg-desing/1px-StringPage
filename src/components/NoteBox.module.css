@@ -12,6 +12,15 @@
   width: 3.21vw;
   height: 5.33vh;
   z-index: 11;
+  cursor: pointer;
+
+  /* transition: box-shadow 0.3s ease; */
+}
+
+.note1:hover {
+  transform: scale(1.1);
+  /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); */
+
 }
 
 .note2 {
@@ -21,6 +30,8 @@
   width: 3.21vw;
   height: 5.33vh;
   z-index: 12;
+  cursor: pointer;
+  /* transition: box-shadow 0.3s ease; */
 }
 
 .note3 {
@@ -30,4 +41,21 @@
   width: 3.21vw;
   height: 5.33vh;
   z-index: 12;
+  cursor: pointer;
+
+  /* transition: box-shadow 0.3s ease; */
 }
+
+
+.note2:hover {
+    transform: scale(1.1);
+    /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); */
+}
+
+.note3:hover {
+    transform: scale(1.1);
+    /* box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); */
+}
+
+
+

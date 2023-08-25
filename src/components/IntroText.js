@@ -57,7 +57,7 @@ const IntroText = () => {
             그려내고 있다.
           </p>
         </div>
-        <img src={signImg} className={classes.sign}></img>
+        <p className={classes.sign}>haeun59100@naver.com</p>
       </div>
     </div>
   );

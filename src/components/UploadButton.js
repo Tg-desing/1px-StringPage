@@ -93,12 +93,14 @@ const UploadButton = (props) => {
   };
 
   return (
-    <img
-      src={camera}
-      className={classes.button}
-      onClick={onClickHandler}
-      alt="upload button"
-    ></img>
+    <div className={classes['button-container']}>
+      <img
+        src={camera}
+        className={classes.button}
+        onClick={onClickHandler}
+        alt="upload button"
+      ></img>
+    </div>
   );
 };
 

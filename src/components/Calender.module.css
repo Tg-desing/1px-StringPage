@@ -28,9 +28,26 @@
   height: 10.28vh;
 }
 
-.calender-pos:hover {
-  width: 19vw;
-  height: 12vh;
-  transition: 0.7s;
-  box-shadow: -5px -5px 20px #0c0c0c;
+.modal {
+  position: absolute;
+  top: 10vh;
+  left: 10vw;
+  z-index: 300;
+  width: 80vw;
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 50%;
+
+}
+
+.modal-image {
+  width: 100%;
 }
