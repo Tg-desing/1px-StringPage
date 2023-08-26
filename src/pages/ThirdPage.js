@@ -22,9 +22,9 @@ import StringLayer from '../components/StringLayer';
 const ThirdPage = () => {
   const [resetIsValid, setResetIsValid] = useState(false);
   const [noteList, setNoteList] = useState({
-    note1: [{ targetId: 1, id: 1 }],
-    note2: [{ targetId: 2, id: 2 }],
-    note3: [{ targetId: 3, id: 3 }],
+    note1: [],
+    note2: [],
+    note3: [],
   });
   const [noteSavedList, setNoteSavedList] = useState({
     note1: [],
