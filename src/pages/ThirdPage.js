@@ -98,61 +98,67 @@ const ThirdPage = () => {
         value={{ imageList: imageList, setImageList: setImageList }}
       >
         <div className={classes['background']}>
-          <img src={title} alt={'title'} className={classes.title}></img>
-          <Calender />
-          <StringLayer />
-          <div className={classes.notepage} ref={element}>
-            <div className={classes['note-container']}>
-              <NoteBox
-                resetIsValid={resetIsValid}
-                noteList={noteList}
-                setNoteList={setNoteList}
-                setResetIsValid={setResetIsValid}
-                img={note1}
-                id="1"
-                saveIsValid={saveIsValid}
-                setSaveIsValid={setSaveIsValid}
-                isDropValid={isDropValid}
-                setIsDropValid={setIsDropValid}
-              ></NoteBox>
-              <NoteBox
-                resetIsValid={resetIsValid}
-                noteList={noteList}
-                setNoteList={setNoteList}
-                setResetIsValid={setResetIsValid}
-                id="2"
-                img={note2}
-                saveIsValid={saveIsValid}
-                setSaveIsValid={setSaveIsValid}
-                isDropValid={isDropValid}
-                setIsDropValid={setIsDropValid}
-              ></NoteBox>
-              <NoteBox
-                resetIsValid={resetIsValid}
-                noteList={noteList}
-                setNoteList={setNoteList}
-                setResetIsValid={setResetIsValid}
-                id="3"
-                img={note3}
-                saveIsValid={saveIsValid}
-                setSaveIsValid={setSaveIsValid}
-                isDropValid={isDropValid}
-                setIsDropValid={setIsDropValid}
-              ></NoteBox>
+          <div className={classes.page}>
+            <img src={title} alt={'title'} className={classes.title}></img>
+            <Calender />
+            <StringLayer />
+            <div className={classes.notepage} ref={element}>
+              <div className={classes['note-container']}>
+                <NoteBox
+                  resetIsValid={resetIsValid}
+                  noteList={noteList}
+                  setNoteList={setNoteList}
+                  setResetIsValid={setResetIsValid}
+                  img={note1}
+                  id="1"
+                  saveIsValid={saveIsValid}
+                  setSaveIsValid={setSaveIsValid}
+                  isDropValid={isDropValid}
+                  setIsDropValid={setIsDropValid}
+                ></NoteBox>
+                <NoteBox
+                  resetIsValid={resetIsValid}
+                  noteList={noteList}
+                  setNoteList={setNoteList}
+                  setResetIsValid={setResetIsValid}
+                  id="2"
+                  img={note2}
+                  saveIsValid={saveIsValid}
+                  setSaveIsValid={setSaveIsValid}
+                  isDropValid={isDropValid}
+                  setIsDropValid={setIsDropValid}
+                ></NoteBox>
+                <NoteBox
+                  resetIsValid={resetIsValid}
+                  noteList={noteList}
+                  setNoteList={setNoteList}
+                  setResetIsValid={setResetIsValid}
+                  id="3"
+                  img={note3}
+                  saveIsValid={saveIsValid}
+                  setSaveIsValid={setSaveIsValid}
+                  isDropValid={isDropValid}
+                  setIsDropValid={setIsDropValid}
+                ></NoteBox>
+              </div>
+              <div
+                className={classes['img-div']}
+                id="drag-on"
+                onDragOver={onDragOverHandler}
+              >
+                <img
+                  src={notepage}
+                  className={classes.noteimg}
+                  alt="note"
+                ></img>
+                {/* <ReButton onClick={onClickReButtonHandler}></ReButton> */}
+              </div>
+              <p className={classes.text}>
+                음표를 붙인 후 체크 버튼을 꼭 눌러주세요!{' '}
+              </p>
+              <SaveButton onClick={onClickSaveButtonHandler}></SaveButton>
+              <UploadButton element={element}></UploadButton>
             </div>
-            <div
-              className={classes['img-div']}
-              id="drag-on"
-              onDragOver={onDragOverHandler}
-            >
-              <img src={notepage} className={classes.noteimg} alt="note"></img>
-              {/* <ReButton onClick={onClickReButtonHandler}></ReButton> */}
-            </div>
-            <p className={classes.text}>
-              음표를 붙인 후 체크 버튼을 꼭 눌러주세요!{' '}
-            </p>
-            <SaveButton onClick={onClickSaveButtonHandler}></SaveButton>
-            <UploadButton element={element}></UploadButton>
           </div>
         </div>
       </ImageContext.Provider>

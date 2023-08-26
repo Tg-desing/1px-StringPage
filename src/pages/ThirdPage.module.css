@@ -6,19 +6,17 @@
   aspect-ratio: 16 / 9;
   background-color: #d0eae0;
 }
-
 .title {
   position: absolute;
   width: 31.19vw;
   height: 13.42vh;
-  top: 8vh;
+  top: 6vh;
   left: 34.37vw;
 }
 
 .notepage {
   position: absolute;
-  /* top: 18.42vh; */
-  top: 21vh;
+  top: 18.42vh;
   left: 10.98vw;
   display: flex;
   z-index: 100;
@@ -32,7 +30,8 @@
 }
 
 .note-container {
-  margin-top: 4.81vh;
+  /* margin-top: 4.81vh; */
+  margin-top: 3.6%;
 }
 
 .imgcontainer {

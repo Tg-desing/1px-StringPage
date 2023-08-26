@@ -1,6 +1,6 @@
 .page {
   width: 100vw;
-  aspect-ratio: 16 / 9;
+  height: 100vh;
   background-color: #d0eae0;
   position: relative;
 }
