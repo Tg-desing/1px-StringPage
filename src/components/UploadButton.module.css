@@ -3,20 +3,20 @@
   width: 2.89vw;
   left: 2.29vw;
   top: 1.8vh;
-  cursor: pointer;
+  
 }
 
-.button:hover {
-  transform: scale(1.1);
+.button-container:hover {
+  background-color: #eefff8
 }
 
 .button-container {
   position: absolute;
   width: 5.85vw;
   margin-top: 5.5vh;
-  top: 10vh;
+  top: 70%;
   height: 7.5vh;
-  left: 72.04vw;
-  background-color: #eefff8;
+  left: 0vw;
+  background-color: #D0EAE0;
   z-index: 0;
 }

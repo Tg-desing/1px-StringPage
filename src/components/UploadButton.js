@@ -93,13 +93,11 @@ const UploadButton = (props) => {
   };
 
   return (
-    <div className={classes['button-container']}>
-      <div
-        className={classes.button}
-        onClick={onClickHandler}
-        alt="upload button"
-      ></div>
-    </div>
+    <div
+      className={classes['button-container']}
+      onClick={onClickHandler}
+      alt="upload button"
+    ></div>
   );
 };
 
