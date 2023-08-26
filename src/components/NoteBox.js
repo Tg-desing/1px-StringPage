@@ -80,8 +80,8 @@ const NoteBox = (props) => {
 
     if (resetIsValid) {
       if (originPos.x !== 0 && originPos.y !== 0) {
-        originalNote.current.style.top = `${originPos.y}vh`;
-        originalNote.current.style.left = `${originPos.x}vw`;
+        originalNote.current.style.top = `${originPos.y}px`;
+        originalNote.current.style.left = `${originPos.x}px`;
         setResetIsValid(false);
         setSavedList([]);
       }
@@ -219,7 +219,7 @@ const NoteBox = (props) => {
 
   return (
     <div className={classes['note-box']}>
-      <img
+      {/* <img
         id={props.id}
         src={props.img}
         alt={`note${props.id}`}
@@ -228,7 +228,7 @@ const NoteBox = (props) => {
         onDragEnd={onDragEndHandler}
         ref={originalNote}
         draggable="true"
-      ></img>
+      ></img> */}
       {props.noteList[`note${props.id}`].map((item) => (
         <img
           id={`${item.targetId}`}
